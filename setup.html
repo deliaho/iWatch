@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html class="gt-ie8 gt-ie9 not-ie">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DDSC | iWatch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- url icon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- DDSC stylesheets -->
+    <link href="css/ddsc-iWatch.min.css" rel="stylesheet" type="text/css">
+    <link href="css/widgets.min.css" rel="stylesheet" type="text/css">
+    <link href="css/rtl.min.css" rel="stylesheet" type="text/css">
+    <link href="css/themes.min.css" rel="stylesheet" type="text/css">
+</head>
+<!-- top & left 固定 -->
+<body class="theme-default main-navbar-fixed main-menu-fixed fix">
+    <script>var init = [];</script>
+    <!-- Demo script 
+    <script src="assets/demo/demo.js"></script>-->
+    <!-- / Demo script -->
+    <div id="main-wrapper">
+        <div id="main-navbar" class="navbar navbar-inverse" role="navigation">
+            <!-- Main menu toggle -->
+            <button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text">HIDE MENU</span></button>
+            <div class="navbar-inner" style="height: 46px;">
+                <!-- Main navbar header -->
+                <div class="navbar-header">
+                    <!-- Logo (height: 46px)-->
+                    <a href="index.html">
+                        <div class="navbar-brand no-padding-hr" style="margin-bottom: 2px; padding-top: 4px;">
+                            <img class="logo-lg img-responsive" style="height: 38px;" src="images/logo.jpg" alt="logo">
+                        </div>
+                        <!-- Product name  (height: 46px)
+                        <div class="navbar-brand" style="margin-bottom: -5px;">
+                            <img class="img-responsive" src="dist/img/header_title.png" alt="WMM" >
+                        </div>-->
+                    </a>
+                    <!-- Main navbar toggle -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button>
+                </div>
+                <!-- / .navbar-header -->
+                <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
+                    <div>
+                        <div class="right clearfix">
+                            <ul class="nav navbar-nav pull-right right-navbar-nav">
+                                <li>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="nav-icon fa fa-user" style="color: #eb5405;"></i>
+                                        <span style="padding-right: 10px;">系統管理者</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="signin.html">
+                                        <i class="nav-icon glyphicon glyphicon-log-out" style="color: #3cba54;"></i>
+                                        <span class="small-screen-text">登出</span>
+                                        <span id="clock" class="label bg-red"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- / .navbar-nav -->
+                        </div>
+                        <!-- / .right -->
+                    </div>
+                </div>
+                <!-- / #main-navbar-collapse -->
+            </div>
+            <!-- / .navbar-inner -->
+        </div>
+        <!-- / #main-navbar -->
+        <div id="main-menu" role="navigation">
+            <div id="main-menu-inner">
+                <ul class="navigation">
+                    <li class="active">
+                        <a href="index.html"><i class="menu-icon fa fa-home"></i><span class="mm-text">iWatch Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="setup.html"><i class="menu-icon fa fa-gear"></i><span class="mm-text">系統設定</span></a>
+                    </li>
+                </ul>
+                <!-- / .navigation -->
+            </div>
+            <!-- / #main-menu-inner -->
+        </div>
+        <!-- / #main-menu -->
+        <div id="content-wrapper">
+            <div class="page-header">
+                <div class="row ">
+                    <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-gear page-header-icon"></i>&nbsp;&nbsp;系統設定</h1>
+                </div>
+            </div>
+            <!-- / .page-header -->
+            <!-- Main content -->
+            <section class="content">
+                <!-- 主機 1 -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-solid">
+                            <div class="box-body">
+                                <div class="row">
+                                    <div class="col-md-2 form-group no-margin-hr">
+                                        <label class="control-label">AS400 IP</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-md-2 form-group no-margin-hr ">
+                                        <label class="control-label">AS400 ID</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="col-md-2 form-group no-margin-hr ">
+                                        <label class="control-label">密碼</label>
+                                        <input type="password" class="form-control" />
+                                    </div>
+                                </div>
+                                <ul id="uidemo-tabs-default-demo" class="col-md-12 nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#uidemo-tabs-1" data-toggle="tab">警示條件設定</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#uidemo-tabs-2" data-toggle="tab">電子郵件設定</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#uidemo-tabs-3" data-toggle="tab">PORT列管設定</a>
+                                    </li>
+                                    <!-- / .dropdown -->
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade active in" id="uidemo-tabs-1">
+                                        <form class="form-horizontal no-border" style="margin-top: 40px;">
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-sm-4 col-xs-6 control-label">CPU Usage Rate (%)</label>
+                                                <div class="col-md-9 col-sm-8 col-xs-6">
+                                                    <input type="number" min="10" max="90" step="5" value="75" class="form-control" style="width: 80px;" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-sm-4 col-xs-6 control-label">HD Usage Rate (%)</label>
+                                                <div class="col-md-9 col-sm-8 col-xs-6">
+                                                    <input type="number" min="10" max="90" step="5" value="75" class="form-control" style="width: 80px;" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 col-sm-4 col-xs-6 control-label">JOB 佔用 CPU (%)</label>
+                                                <div class="col-md-9 col-sm-8 col-xs-6">
+                                                    <input type="number" min="10" max="90" step="5" value="40" class="form-control" style="width: 80px;" />
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-1 col-sm-10">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" class="px">
+                                                            <span class="lbl">Job Message Waiting</span>
+                                                        </label>
+                                                    </div>
+                                                    <!-- / .checkbox -->
+                                                </div>
+                                            </div>
+                                            <!-- / .form-group -->
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-1 col-sm-10">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" class="px">
+                                                            <span class="lbl">AS400 硬體警告訊息</span>
+                                                        </label>
+                                                    </div>
+                                                    <!-- / .checkbox -->
+                                                </div>
+                                            </div>
+                                            <!-- / .form-group -->
+                                            <div class="form-group" style="margin-bottom: 0;">
+                                                <div class="col-sm-offset-1 col-sm-10">
+                                                    <button class="btn btn-primary">執行</button>
+                                                    <button class="btn btn-primary">結束</button>
+                                                </div>
+                                            </div>
+                                            <!-- / .form-group -->
+                                        </form>
+                                    </div>
+                                    <!-- / .tab-pane -->
+                                    <div class="tab-pane fade" id="uidemo-tabs-2">
+                                        <form class="form-horizontal no-border" style="margin-top: 40px;">
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-4 control-label">Mail Server IP</label>
+                                                <div class="col-md-10 col-sm-8">
+                                                    <input type="text"  class="form-control" style="width: 200px;" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-4 control-label">收件者 email Address</label>
+                                                <div class="col-md-10 col-sm-8">
+                                                    <input type="email"  class="form-control" style="width: 200px;" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-4 control-label">寄件者 email Address</label>
+                                                <div class="col-md-10 col-sm-8">
+                                                    <input type="email"  class="form-control" style="width: 200px;" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-4 control-label">寄件者帳號</label>
+                                                <div class="col-md-10 col-sm-8">
+                                                    <input type="text"  class="form-control" style="width: 200px;" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-4 control-label">寄件者密碼</label>
+                                                <div class="col-md-10 col-sm-8">
+                                                    <input type="password"  class="form-control" style="width: 200px;" />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group" style="margin-bottom: 0;">
+                                                <div class="col-sm-offset-1 col-sm-10">
+                                                    <button class="btn btn-primary">執行</button>
+                                                    <button class="btn btn-primary">結束</button>
+                                                </div>
+                                            </div>
+                                            <!-- / .form-group -->
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="uidemo-tabs-3">
+                                        <div class="col-md-6" style="margin-top: 10px;">
+                                            <table id="table1" class="table table-bordered table-hover table-dark-gray">
+                                                <thead>
+                                                    <tr class=" bg-gray-light">
+                                                        <th ></th>
+                                                        <th >Name</th>
+                                                        <th >Address</th>
+                                                        <th >Port</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center no-padding-hr">
+                                                            <a href="#" title="修改"><i class="glyphicon glyphicon-pencil text-info"></i>&nbsp &nbsp</a>
+                                                            <a href="#" title="刪除"><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                                                        </td>
+                                                        <td>網銀</td>
+                                                        <td>192.0.0.1</td>
+                                                        <td>40471</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center no-padding-hr">
+                                                            <a href="#" title="修改"><i class="glyphicon glyphicon-pencil text-info"></i>&nbsp &nbsp</a>
+                                                            <a href="#" title="刪除"><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                                                        </td>
+                                                        <td>基金</td>
+                                                        <td>192.0.0.2</td>
+                                                        <td>40471</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center no-padding-hr">
+                                                            <a href="#" title="修改"><i class="glyphicon glyphicon-pencil text-info"></i>&nbsp &nbsp</a>
+                                                            <a href="#" title="刪除"><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                                                        </td>
+                                                        <td>證券</td>
+                                                        <td>192.0.0.3</td>
+                                                        <td>40471</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center no-padding-hr">
+                                                            <a href="#" title="修改"><i class="glyphicon glyphicon-pencil text-info"></i>&nbsp &nbsp</a>
+                                                            <a href="#" title="刪除"><i class="glyphicon glyphicon-trash text-danger"></i></a>
+                                                        </td>
+                                                        <td>期貨</td>
+                                                        <td>192.0.0.4</td>
+                                                        <td>40471</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- / .form-group -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / .tab-content -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <div id="modal-port" class="modal fade" tabindex="-1" role="dialog" style="display: none; ">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header bg-light-blue-active">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title" id="myModalLabel">Port 列管設定</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal no-border">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-6 control-label">Name</label>
+                                        <div class="col-md-8 col-sm-6">
+                                            <input type="text" class="form-control" style="width: 200px;" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-6 control-label">Address</label>
+                                        <div class="col-md-8 col-sm-6">
+                                            <input type="email" class="form-control" style="width: 200px;" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-6 control-label">Port</label>
+                                        <div class="col-md-8 col-sm-6">
+                                            <input type="email" class="form-control" style="width: 200px;" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 0;">
+                                        <div class="col-sm-offset-1 col-sm-10">
+                                            <button class="btn btn-primary">執行</button>
+                                            <button class="btn btn-primary">結束</button>
+                                        </div>
+                                    </div>
+                                    <!-- / .form-group -->
+                                </form>
+                            </div>
+                            <!-- / .modal-body -->
+                        </div>
+                        <!-- / .modal-content -->
+                    </div>
+                    <!-- / .modal-dialog -->
+                </div>
+            </section>
+        </div>
+    <!-- / #content-wrapper -->
+    <div id="main-menu-bg"></div>
+    </div>
+    <!-- / #main-wrapper -->
+    <!-- jQuery  -->
+    <script src="plugins/jquery/jQuery.min.js"></script>
+    <!-- Bootstrap  -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- jQuery  -->
+    <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+    <!-- DDSC javascripts -->
+    <script src="js/ddsc-iWatch.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <script type="text/javascript">
+        init.push(function () {
+            // Javascript code here
+        })
+        window.ddsc.start(init);
+    </script>
+    <!-- DataTables -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#table1').DataTable({
+                //"dom": 'l<"addbutton">frtip',
+                dom:
+                    "<'row'<'col-sm-4'l><'col-sm-8'<'newRecord'>>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                destroy: true,
+                paging: true,
+                info: false,
+                searching: true,
+                ordering: false,
+                order: [[1, "desc"]],  // 預設排序
+                orderMulti: false,
+                autoWidth: false,
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "全部"]],
+                processing: true,
+                pagingType: 'full_numbers',
+                decimal: ",",
+                language: {
+                    "processing": "處理中...",
+                    "loadingRecords": "載入中...",
+                    "lengthMenu": "一頁顯示 _MENU_ 筆資料",
+                    "zeroRecords": "沒有符合的結果",
+                    "info": "顯示第 _START_ 至 _END_ 筆資料，共 _TOTAL_ 筆",
+                    "infoEmpty": "顯示第 0 至 0 筆資料，共 0 筆",
+                    "infoFiltered": "(從 _MAX_ 筆資料中過濾)",
+                    "infoPostFix": "",
+                    "search": "搜尋:",
+                    "url": "",
+                    "paginate": {
+                        'first': '<i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i>',
+                        'last': '<i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i>',
+                        'previous': '<i class="fa fa-chevron-left"></i>',
+                        'next': '<i class="fa fa-chevron-right"></i>'
+                    }
+                }
+            });
+            $("div.newRecord").html(' <a  class="btn btn-primary pull-right" role="button" data-toggle="modal" data-target="#modal-port"><i class="glyphicon glyphicon-plus margin-r-5"></i>新增</a>');
+            //$("div.addbutton").html('<i class="glyphicon glyphicon-plus"></i>');
+        });
+    </script>
+</body>
+</html>
