@@ -1,57 +1,575 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Iwatch by deliaho</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Iwatch</h1>
-      <h2 class="project-tagline">iWatch Demo</h2>
-      <a href="https://github.com/deliaho/iWatch" class="btn">View on GitHub</a>
-      <a href="https://github.com/deliaho/iWatch/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/deliaho/iWatch/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+﻿<!DOCTYPE html>
+<html class="gt-ie8 gt-ie9 not-ie">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DDSC | iWatch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- url icon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- DDSC stylesheets -->
+    <link href="css/ddsc-iWatch.min.css" rel="stylesheet" type="text/css">
+    <link href="css/widgets.min.css" rel="stylesheet" type="text/css">
+    <link href="css/rtl.min.css" rel="stylesheet" type="text/css">
+    <link href="css/themes.min.css" rel="stylesheet" type="text/css">
+</head>
+<!-- top & left 固定 -->
+<body class="theme-default main-navbar-fixed main-menu-fixed fix">
+    <script>var init = [];</script>
+    <div id="main-wrapper">
+        <div id="main-navbar" class="navbar navbar-inverse" role="navigation">
+            <!-- Main menu toggle -->
+            <button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text">HIDE MENU</span></button>
+            <div class="navbar-inner" style="height: 46px;">
+                <!-- Main navbar header -->
+                <div class="navbar-header">
+                    <!-- Logo (height: 46px)-->
+                    <a href="index.html">
+                        <div class="navbar-brand no-padding-hr" style="margin-bottom: 2px; padding-top: 4px;">
+                            <img class="logo-lg img-responsive" style="height:38px;" src="images/logo.jpg"  alt="logo" >
+                        </div>
+                        <!-- Product name  (height: 46px)
+                        <div class="navbar-brand" style="margin-bottom: -5px;">
+                            <img class="img-responsive" src="dist/img/header_title.png" alt="WMM" >
+                        </div>-->
+                    </a>
+                    <!-- Main navbar toggle -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button>
+                </div>
+                <!-- / .navbar-header -->
+                <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
+                    <div>
+                        <div class="right clearfix">
+                            <ul class="nav navbar-nav pull-right right-navbar-nav">
+                                <li>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="nav-icon fa fa-user" style="color: #eb5405;"></i>
+                                        <span style="padding-right: 10px;">系統管理者</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="signin.html">
+                                        <i class="nav-icon glyphicon glyphicon-log-out" style="color: #3cba54;"></i>
+                                        <span class="small-screen-text">登出</span>
+                                        <span id="clock" class="label bg-red"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- / .navbar-nav -->
+                        </div>
+                        <!-- / .right -->
+                    </div>
+                </div>
+                <!-- / #main-navbar-collapse -->
+            </div>
+            <!-- / .navbar-inner -->
+        </div>
+        <!-- / #main-navbar -->
+        <div id="main-menu" role="navigation">
+            <div id="main-menu-inner">
+                <ul class="navigation">
+                    <li  class="active">
+                        <a href="index.html"><i class="menu-icon fa fa-home"></i><span class="mm-text">iWatch Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="setup.html"><i class="menu-icon fa fa-gear"></i><span class="mm-text">系統設定</span></a>
+                    </li>
+                </ul>
+                <!-- / .navigation -->
+            </div>
+            <!-- / #main-menu-inner -->
+        </div>
+        <!-- / #main-menu -->
+        <div id="content-wrapper">
+            <div class="page-header">
+                <div class="row ">
+                    <h1 class="col-xs-12 col-sm-4 text-center text-left-sm"><i class="fa fa-dashboard page-header-icon"></i>&nbsp;&nbsp;iWatch Dashboard</h1>
+                </div>
+            </div>
+            <!-- / .page-header -->
+            <!-- Main content -->
+            <section class="content">
+                <!-- 主機 1 -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- jQuery Knob -->
+                        <div class="box box-solid">
+                            <div class="box-header">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <h3 class="box-title">主機一</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-default btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="row">
+                                    <!-- CPU : 在程式最下面，FusionCharts 產生圖之 JavaScript  -->
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
+                                       <!-- <div id="chart11" class="chart" data-toggle="modal" data-target="#modal-sizes-1" ></div> -->
+                                        <a id="chart11" class="chart" data-toggle="modal" data-target="#Modal-CPU" ></a>
+                                    </div>
+                                    <!-- /CPU -->
+                                    <!-- HD  在程式最下面，FusionCharts 產生圖之 JavaScript -->
+                                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
+                                        <a id="chart12" class="chart" data-toggle="modal" data-target="#Modal-HD" ></a>
+                                    </div>
+                                    <!-- /HD -->
+                                    <!-- MSGW : if message>0 bg-danger , else bg-success -->                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                                        <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-3.html" style="text-decoration:none;">
+                                            <div class="stat-cell bg-danger valign-middle">
+                                                <i class="fa fa-reply bg-icon"></i>
+                                                <span class="text-xlg"><strong>5</strong></span><br>
+                                                <span class="text-bg">Job MSGW</span><br>
+                                            </div>
+                                        </a>
+                                    </div>                                    <!-- /MSGW -->                                    <!-- QSYSOPR : if qsysopr>0 bg-danger , else bg-success -->                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
+                                        <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-4.html" style="text-decoration:none;">
+                                            <div class="stat-cell  bg-danger valign-middle">
+                                                <i class="fa fa-bell-o bg-icon"></i>
+                                                <span class="text-xlg"><strong>1</strong></span><br>
+                                                <span class="text-bg">MSGQ</span><br>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <!-- /QSYSOPR ->
+                                    <!-- Heavy loading : if job>警示值 bg-danger , else bg-success -->
+                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
+                                        <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-5.html" style="text-decoration:none;">
+                                            <div class="stat-cell  bg-success valign-middle">
+                                                 <i class="fa fa-hourglass-o bg-icon"></i>
+                                                 <span class="text-xlg"><strong>1</strong></span><br>
+                                                 <span class="text-bg">Heavy loading</span><br>
+                                            </div>
+                                         </a>
+                                     </div>
+                                    <!-- /Heavy loading -->
+                                    <!-- Port listening -->
+                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
+                                        <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-6.html" style="text-decoration:none;">
+                                            <div class="stat-cell bg-danger valign-middle">
+                                                 <i class="fa fa-signal bg-icon"></i>
+                                                 <span class="text-xlg"><strong>1</strong></span><br>
+                                                 <span class="text-bg">Port listening</span><br>
+                                            </div>
+                                         </a>
+                                     </div>
+                                    <!-- /Port listening -->
+                                 </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /主機 1  -->
+                <!-- 主機 2 -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-solid">
+                            <div class="box-header">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <h3 class="box-title">主機二</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-default btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
 
-    <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /主機 2 -->
+                <!-- 主機 3 -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-solid">
+                            <div class="box-header">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <h3 class="box-title">主機三</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-default btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
-
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
-
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/deliaho/iWatch">Iwatch</a> is maintained by <a href="https://github.com/deliaho">deliaho</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
-  </body>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /主機 3 -->
+                <div class="modal fade" id="Modal-CPU" tabindex="-1" role="dialog" style="display: none;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">主機1 - CPU 使用率監控作業</h4>
+                            </div>
+                            <!-- /modal-header -->
+                            <div class="modal-body no-padding-vr">
+                                <div class="row no-margin">
+                                    <!-- Main content -->
+                                    <div id="chart1-1"></div>
+                                </div>
+                            </div>
+                            <!-- /modal-body -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">關閉視窗</button>
+                            </div>
+                            <!-- /modal-footer -->
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <div class="modal fade" id="Modal-HD" tabindex="-1" role="dialog" style="display: none;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">主機1 - HD 使用率監控作業</h4>
+                            </div>
+                            <!-- /modal-header -->
+                            <div class="modal-body no-padding-vr">
+                                <div class="row no-margin">
+                                    <!-- Main content -->
+                                    <div id="chart1-2"></div>
+                                </div>
+                            </div>
+                            <!-- /modal-body -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">關閉視窗</button>
+                            </div>
+                            <!-- /modal-footer -->
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <div class="modal fade" id="Modal01" tabindex="-1" role="dialog" style="display: none;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-light-blue-active">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </section>
+        </div>
+        <!-- / #content-wrapper -->
+        <div id="main-menu-bg"></div>
+    </div>
+    <!-- / #main-wrapper -->
+    <!-- jQuery  -->
+    <script src="plugins/jquery/jQuery.min.js"></script>
+    <!-- Bootstrap  -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- jQuery  -->
+    <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+    <!-- DDSC javascripts -->
+    <script src="js/ddsc-iWatch.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <!--<script src="plugins/moment/moment.min.js"></script>-->
+    <script src="plugins/moment/moment-with-locales.js"></script>
+    <script type="text/javascript">
+        init.push(function () {
+            // Javascript code here
+        })
+        window.ddsc.start(init);
+    </script>
+    <!-- fusioncharts -->
+    <script type="text/javascript" src="plugins/fusioncharts/js/fusioncharts.js"></script>
+    <script type="text/javascript" src="plugins/fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
+    <!-- page script -->
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var chart1= new FusionCharts({
+                type: 'angulargauge',
+                renderAt: 'chart11',
+                // width 100% for RWD
+                width: '100%',
+                height: '250',
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": {
+                        "caption": "CPU Usage",
+                        //"subcaption": "更新時間 : " + moment().format('YYYY/MM/DD HH:mm:ss'),
+                        "captionFontSize": "18",
+                        "lowerLimit": "0",
+                        "upperLimit": "100",
+                        "lowerLimitDisplay": "Good",
+                        "upperLimitDisplay": "Bad",
+                        "showValue": "1",
+                        "valueBelowPivot": "1",
+                        "responsive": true,
+                        "theme": "fint"
+                    },
+                    "colorRange": {
+                        "color": [
+                            {
+                                "minValue": "0",
+                                "maxValue": "50",
+                                "code": "#6baa01"
+                            },
+                            {
+                                "minValue": "50",
+                                "maxValue": "75",
+                                "code": "#f8bd19"
+                            },
+                            {
+                                "minValue": "75",
+                                "maxValue": "100",
+                                "code": "#e44a00"
+                            }
+                        ]
+                    },
+                    "dials": {
+                        "dial": [{
+                            "value": "70"
+                        }]
+                    }
+                }
+            });
+            chart1.render();
+            var chart2 = new FusionCharts({
+                type: 'angulargauge',
+                renderAt: 'chart12',
+                // width 100% for RWD
+                width: '100%',
+                height: '250',  
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": {
+                        "caption": "HD Usage",
+                        "captionFontSize": "18",
+                        "lowerLimit": "0",
+                        "upperLimit": "100",
+                        "lowerLimitDisplay": "Good",
+                        "upperLimitDisplay": "Bad",
+                        "showValue": "1",
+                        "valueBelowPivot": "1",
+                        "theme": "fint"
+                    },
+                    "colorRange": {
+                        "color": [
+                            {
+                                "minValue": "0",
+                                "maxValue": "50",
+                                "code": "#6baa01"
+                            },
+                            {
+                                "minValue": "50",
+                                "maxValue": "75",
+                                "code": "#f8bd19"
+                            },
+                            {
+                                "minValue": "75",
+                                "maxValue": "100",
+                                "code": "#e44a00"
+                            }
+                        ]
+                    },
+                    "dials": {
+                        "dial": [{
+                            "value": "75"
+                        }]
+                    }
+                }
+            });
+            chart2.render();
+        });
+    </script>   
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var stockPriceChart = new FusionCharts({
+                id: "RealTimeChart1",
+                type: 'realtimeline',
+                renderAt: 'chart1-1',
+                width: '100%',
+                height: '595',
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": {
+                        "caption": "Start Date/Time: " + moment().format('YYYY/MM/DD HH:mm:ss'),
+                        "captionFontSize": "16",
+                        //"subCaption": "",
+                        "xAxisName": "Time",
+                        "yAxisName": "CPU Usage rate(%)",
+                        //"numberPrefix": "",
+                        "numbersuffix": "%",
+                        //水平格線
+                        "numdivlines": "9",
+                        //垂直格線 = 資料筆數 -2
+                        "numvdivlines": "8",
+                        // 畫面資料筆數
+                        "numdisplaysets": "10",
+                        "refreshinterval": "10",
+                        "yaxisminvalue": "0",
+                        "yaxismaxvalue": "100",
+                        "labeldisplay": "rotate",
+                        "showValues": "0",
+                        "showRealTimeValue": "0",
+                        "theme": "fint"
+                    },
+                    "categories": [{
+                        "category": [{
+                            "label": "Day Start"
+                        }]
+                    }],
+                    "dataset": [{
+                        "data": [{
+                            "value": "30"
+                        }]
+                    }]
+                },
+                "events": {
+                    "initialized": function (e) {
+                        function addLeadingZero(num) {
+                            return (num <= 9) ? ("0" + num) : num;
+                        }
+                        function updateData() {
+                            // Get reference to the chart using its ID
+                            var chartRef = FusionCharts("RealTimeChart1"),
+                                // We need to create a querystring format incremental update, containing
+                                // label in hh:mm:ss format
+                                // and a value (random).
+                                currDate = new Date(),
+                                label = addLeadingZero(currDate.getHours()) + ":" +
+                                        addLeadingZero(currDate.getMinutes()) + ":" +
+                                        addLeadingZero(currDate.getSeconds()),
+                                // Get random number   <-- 修改取值方式
+                                randomValue = Math.floor(Math.random()
+                                                          * 80) + 1,
+                                // Build Data String in format &label=...&value=...
+                                strData = "&label=" + label
+                                            + "&value="
+                                            + randomValue;
+                            // Feed it to chart.
+                            chartRef.feedData(strData);
+                        }
+                        // 10 秒更新一次
+                        var myVar = setInterval(function () {
+                            updateData();
+                        }, 10000);
+                    }
+                }
+            })
+            .render();
+        });
+    </script>
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var stockPriceChart = new FusionCharts({
+                id: "RealTimeChart",
+                type: 'realtimeline',
+                renderAt: 'chart1-2',
+                width: '100%',
+                height: '595',
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": {
+                        "caption": "Start Date/Time: " + moment().format('YYYY/MM/DD HH:mm:ss'),
+                        "captionFontSize": "16",
+                        //"subCaption": "",
+                        "xAxisName": "Time",
+                        "yAxisName": "HD Usage rate(%)",
+                        //"numberPrefix": "",
+                        "numbersuffix": "%",
+                        //水平格線
+                        "numdivlines": "9",
+                        //垂直格線 = 資料筆數 -2
+                        "numvdivlines": "8",
+                        // 畫面資料筆數
+                        "numdisplaysets": "10",
+                        "refreshinterval": "30",
+                        "yaxisminvalue": "0",
+                        "yaxismaxvalue": "100",
+                        "labeldisplay": "rotate",
+                        "showValues": "0",
+                        "showRealTimeValue": "0",
+                        "theme": "fint"
+                    },
+                    "categories": [{
+                        "category": [{
+                            "label": "Day Start"
+                        }]
+                    }],
+                    "dataset": [{
+                        "data": [{
+                            "value": "50"
+                        }]
+                    }]
+                },
+                "events": {
+                    "initialized": function (e) {
+                        function addLeadingZero(num) {
+                            return (num <= 9) ? ("0" + num) : num;
+                        }
+                        function updateData() {
+                            // Get reference to the chart using its ID
+                            var chartRef = FusionCharts("RealTimeChart"),
+                                // We need to create a querystring format incremental update, containing
+                                // label in hh:mm:ss format
+                                // and a value (random).
+                                currDate = new Date(),
+                                label = addLeadingZero(currDate.getHours()) + ":" +
+                                        addLeadingZero(currDate.getMinutes()) + ":" +
+                                        addLeadingZero(currDate.getSeconds()),
+                                // Get random number   <-- 修改取值方式
+                                randomValue = Math.floor(Math.random()
+                                                          * 80) + 1,
+                                // Build Data String in format &label=...&value=...
+                                strData = "&label=" + label
+                                            + "&value="
+                                            + randomValue;
+                            // Feed it to chart.
+                            chartRef.feedData(strData);
+                        }
+                        // 30 秒更新一次
+                        var myVar = setInterval(function () {
+                            updateData();
+                        }, 30000);
+                    }
+                }
+            })
+            .render();
+        });
+    </script>
+    <!-- close modal 時，清除 modal 內容，否則是會 show 第一次載入的畫面 -->
+    <script>
+        $('.modal').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+        });
+        $('.modal').on('shown.bs.modal', function (event) { });
+    </script>
+</body>
 </html>
