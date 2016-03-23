@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html class="gt-ie8 gt-ie9 not-ie">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DDSC | iWatch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- url icon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- DDSC stylesheets -->
+    <link href="css/ddsc-iWatch.min.css" rel="stylesheet" type="text/css">
+    <link href="css/widgets.min.css" rel="stylesheet" type="text/css">
+    <link href="css/rtl.min.css" rel="stylesheet" type="text/css">
+    <link href="css/themes.min.css" rel="stylesheet" type="text/css">
+</head>
+<!-- top & left 固定 -->
+<body class="theme-default">
+    <div class="modal-dialog modal-lg no-margin">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">主機1 - CPU 使用率監控作業</h4>
+            </div>
+            <!-- /modal-header -->
+            <div class="modal-body no-padding-vr">
+                <div class="row no-margin">
+                    <!-- Main content -->
+                    <div id="chart1-1"></div>
+                </div>
+            </div>
+            <!-- /modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">關閉視窗</button>
+            </div>
+            <!-- /modal-footer -->
+        </div>
+        <!-- /modal-content -->
+    </div>
+    <!-- /modal-dialog -->
+    <!-- jQuery  -->
+    <script src="plugins/jquery/jQuery.min.js"></script>
+    <!-- Bootstrap  -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- jQuery  -->
+    <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
+    <!-- DDSC javascripts -->
+    <script src="js/ddsc-iWatch.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <!--<script src="plugins/moment/moment.min.js"></script>-->
+    <script src="plugins/moment/moment-with-locales.js"></script>
+    
+    <!-- fusioncharts -->
+    <script type="text/javascript" src="plugins/fusioncharts/js/fusioncharts.js"></script>
+    <script type="text/javascript" src="plugins/fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
+    <!-- page script -->
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var stockPriceChart = new FusionCharts({
+                id: "RealTimeChart",
+                type: 'realtimeline',
+                renderAt: 'chart1-1',
+                width: '100%',
+                height: '595',
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": {
+                        "caption": "Start Date/Time: " + moment().format('YYYY/MM/DD HH:mm:ss'),
+                        "captionFontSize":"16",
+                        //"subCaption": "",
+                        "xAxisName": "Time",
+                        "yAxisName": "CPU Usage rate(%)",
+                        //"numberPrefix": "",
+                        "numbersuffix": "%",
+                        //水平格線
+                        "numdivlines": "9",
+                        //垂直格線 = 資料筆數 -2
+                        "numvdivlines": "8",
+                        // 畫面資料筆數
+                        "numdisplaysets": "10",
+                        "refreshinterval": "10",
+                        "yaxisminvalue": "0",
+                        "yaxismaxvalue": "100",
+                        "labeldisplay": "rotate",
+                        "showValues": "0",
+                        "showRealTimeValue": "0",
+                        "theme": "fint"
+                    },
+                    "categories": [{
+                        "category": [{
+                            "label": "Day Start"
+                        }]
+                    }],
+                    "dataset": [{
+                        "data": [{
+                            "value": "30"
+                        }]
+                    }]
+                },
+                "events": {
+                    "initialized": function (e) {
+                        function addLeadingZero(num) {
+                            return (num <= 9) ? ("0" + num) : num;
+                        }
+                        function updateData() {
+                            // Get reference to the chart using its ID
+                            var chartRef = FusionCharts("RealTimeChart"),
+                                // We need to create a querystring format incremental update, containing
+                                // label in hh:mm:ss format
+                                // and a value (random).
+                                currDate = new Date(),
+                                label = addLeadingZero(currDate.getHours()) + ":" +
+                                        addLeadingZero(currDate.getMinutes()) + ":" +
+                                        addLeadingZero(currDate.getSeconds()),
+                                // Get random number   <-- 修改取值方式
+                                randomValue = Math.floor(Math.random()
+                                                          * 80)  + 1,
+                                // Build Data String in format &label=...&value=...
+                                strData = "&label=" + label
+                                            + "&value="
+                                            + randomValue;
+                            // Feed it to chart.
+                            chartRef.feedData(strData);
+                        }
+                        // 10 秒更新一次
+                        var myVar = setInterval(function () {
+                            updateData();
+                        }, 10000);
+                    }
+                }
+            })
+            .render();
+        });
+    </script>
+</body>
+</html>
