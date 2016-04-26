@@ -98,6 +98,28 @@
             <section class="content">
                 <!-- 主機 1 -->
                 <div class="row">
+                    <!-- 2016/4/26 增加主機總覽-->
+                    <div class="col-xs-12">
+                        <div class="box box-solid">
+                            <div class="box-header">
+                                <i class="fa fa-sitemap"></i>
+                                <h3 class="box-title">總覽</h3>
+                                <div class="box-tools pull-right">
+                                    <button class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-default btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div id="chart00" class="chart"></div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+
                     <div class="col-xs-12">
                         <!-- jQuery Knob -->
                         <div class="box box-solid">
@@ -114,16 +136,17 @@
                                 <div class="row">
                                     <!-- CPU : 在程式最下面，FusionCharts 產生圖之 JavaScript  -->
                                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-                                       <!-- <div id="chart11" class="chart" data-toggle="modal" data-target="#modal-sizes-1" ></div> -->
-                                        <a id="chart11" class="chart" data-toggle="modal" data-target="#Modal-CPU" ></a>
+                                        <!-- <div id="chart11" class="chart" data-toggle="modal" data-target="#modal-sizes-1" ></div> -->
+                                        <a id="chart11" class="chart" data-toggle="modal" data-target="#Modal-CPU"></a>
                                     </div>
                                     <!-- /CPU -->
                                     <!-- HD  在程式最下面，FusionCharts 產生圖之 JavaScript -->
                                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-                                        <a id="chart12" class="chart" data-toggle="modal" data-target="#Modal-HD" ></a>
+                                        <a id="chart12" class="chart" data-toggle="modal" data-target="#Modal-HD"></a>
                                     </div>
                                     <!-- /HD -->
-                                    <!-- MSGW : if message>0 bg-danger , else bg-success -->                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                                    <!-- MSGW : if message>0 bg-danger , else bg-success -->
+                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
                                         <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-3.html" style="text-decoration:none;">
                                             <div class="stat-cell bg-danger valign-middle">
                                                 <i class="fa fa-reply bg-icon"></i>
@@ -131,7 +154,10 @@
                                                 <span class="text-bg">Job MSGW</span><br>
                                             </div>
                                         </a>
-                                    </div>                                    <!-- /MSGW -->                                    <!-- QSYSOPR : if qsysopr>0 bg-danger , else bg-success -->                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
+                                    </div>
+                                    <!-- /MSGW -->
+                                    <!-- QSYSOPR : if qsysopr>0 bg-danger , else bg-success -->
+                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
                                         <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-4.html" style="text-decoration:none;">
                                             <div class="stat-cell  bg-danger valign-middle">
                                                 <i class="fa fa-bell-o bg-icon"></i>
@@ -141,29 +167,29 @@
                                         </a>
                                     </div>
                                     <!-- /QSYSOPR ->
-                                    <!-- Heavy loading : if job>警示值 bg-danger , else bg-success -->
+                            <!-- Heavy loading : if job>警示值 bg-danger , else bg-success -->
                                     <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
                                         <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-5.html" style="text-decoration:none;">
                                             <div class="stat-cell  bg-success valign-middle">
-                                                 <i class="fa fa-hourglass-o bg-icon"></i>
-                                                 <span class="text-xlg"><strong>1</strong></span><br>
-                                                 <span class="text-bg">Heavy loading</span><br>
+                                                <i class="fa fa-hourglass-o bg-icon"></i>
+                                                <span class="text-xlg"><strong>1</strong></span><br>
+                                                <span class="text-bg">Heavy loading</span><br>
                                             </div>
-                                         </a>
-                                     </div>
+                                        </a>
+                                    </div>
                                     <!-- /Heavy loading -->
                                     <!-- Port listening -->
                                     <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
                                         <a class="stat-panel" data-toggle="modal" data-target="#Modal01" href="index1-6.html" style="text-decoration:none;">
                                             <div class="stat-cell bg-danger valign-middle">
-                                                 <i class="fa fa-signal bg-icon"></i>
-                                                 <span class="text-xlg"><strong>1</strong></span><br>
-                                                 <span class="text-bg">Port listening</span><br>
+                                                <i class="fa fa-signal bg-icon"></i>
+                                                <span class="text-xlg"><strong>1</strong></span><br>
+                                                <span class="text-bg">Port listening</span><br>
                                             </div>
-                                         </a>
-                                     </div>
+                                        </a>
+                                    </div>
                                     <!-- /Port listening -->
-                                 </div>
+                                </div>
                                 <!-- /.row -->
                             </div>
                             <!-- /.box-body -->
@@ -310,6 +336,167 @@
     <script type="text/javascript" src="plugins/fusioncharts/js/fusioncharts.js"></script>
     <script type="text/javascript" src="plugins/fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
     <!-- page script -->
+    <!-- 2016/4/26 增加主機總覽-->
+    <script type="text/javascript">
+        FusionCharts.ready(function () {
+            var chart1 = new FusionCharts({
+                type: 'dragnode',
+                renderAt: 'chart00',
+                // width 100% for RWD
+                width: '100%',
+                height: '600',
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": {
+                        "palette": "4",
+                        "xaxisminvalue": "0",
+                        "xaxismaxvalue": "100",
+                        "yaxisminvalue": "-5",
+                        "yaxismaxvalue": "100",
+                        "is3d": "1",
+                        "showformbtn": "0",
+                        "showRestoreBtn":'0',
+                        "viewmode": "1",
+                        "allowdrag": "0",
+                        "baseFontSize": "20",
+                        "baseFontColor": "000000"
+                    },
+                    "dataset": [
+                        {
+                            "plotborderalpha": "0",
+                            "allowdrag": "0",
+                            "showformbtn": "0",
+                            "data": [
+                {
+                    "x": "15",
+                    "y": "40",
+                    "width": "138",
+                    "height": "210",
+                    "name": "主機一",
+                    "namesize": "60",
+                    "alpha": "100",
+                    "id": "S1",
+                    "imagenode": "1",
+                    "imageurl": "images/as400.png",
+                    "color": "FE3233",
+                    "imagewidth": "128",
+                    "imageheight": "167",
+                    "imagealign": "middle",
+                    "labelalign": "bottom",
+                },
+                {
+                    "x": "35",
+                    "y": "70",
+                    "width": "138",
+                    "height": "210",
+                    "name": "主機二",
+                    "color": "33C1FE",
+                    "id": "S2",
+                    "imagenode": "1",
+                    "imageurl": "images/as400.png",
+                    "alpha": "0",
+                    "imagewidth": "128",
+                    "imageheight": "167",
+                    "imagealign": "middle",
+                    "labelalign": "bottom",
+                },
+                {
+                    "x": "58",
+                    "y": "60",
+                    "width": "138",
+                    "height": "210",
+                    "name": "主機三",
+                    "color": "33C1FE",
+                    "id": "S3",
+                    "imagenode": "1",
+                    "imageurl": "images/as400.png",
+                    "alpha": "0",
+                    "imagewidth": "128",
+                    "imageheight": "167",
+                    "imagealign": "middle",
+                    "labelalign": "bottom"
+                },
+                {
+                    "x": "40",
+                    "y": "20",
+                    "width": "138",
+                    "height": "210",
+                    "name": "主機四",
+                    "color": "33C1FE",
+                    "id": "S4",
+                    "imagenode": "1",
+                    "imageurl": "images/as400.png",
+                    "alpha": "0",
+                    "imagewidth": "128",
+                    "imageheight": "167",
+                    "imagealign": "middle",
+                    "labelalign": "bottom"
+                }
+                            ]
+                        }
+                    ],
+                    "connectors": [
+                        {
+                            "color": "FF0000",
+                            "stdthickness": "5",
+                            "connector": [
+                                {
+                                    "strength": "0.8",
+                                    "from": "S1",
+                                    "to": "S2",
+                                    "color": "BBBB00",
+                                    "arrowatstart": "0",
+                                    "arrowatend": "0"
+                                },
+                                {
+                                    "strength": "0.8",
+                                    "from": "S2",
+                                    "to": "S3",
+                                    "color": "BBBB00",
+                                    "arrowatstart": "0",
+                                    "arrowatend": "0"
+                                },
+                                {
+                                    "strength": "0.8",
+                                    "from": "S3",
+                                    "to": "S4",
+                                    "color": "BBBB00",
+                                    "arrowatstart": "0",
+                                    "arrowatend": "0"
+                                },
+                                {
+                                    "strength": "0.8",
+                                    "from": "S1",
+                                    "to": "S4",
+                                    "color": "BBBB00",
+                                    "arrowatstart": "0",
+                                    "arrowatend": "0"
+                                }
+                            ]
+                        }
+                    ],
+                    "vtrendlines": [
+                        {
+                            "line": [
+                                {
+                                    "startvalue": "0",
+                                    "endvalue": "100",
+                                    "color": "0000FF",
+                                    "alpha": "5",
+                                    "displayvalue": "AS400",
+                                    "istrendzone": "1"
+                                }
+                            ]
+                        }
+                    ],
+                    "labels": {
+                        "label": []
+                    }
+                }
+            });
+            chart1.render();
+        });
+    </script>   
     <script type="text/javascript">
         FusionCharts.ready(function () {
             var chart1= new FusionCharts({
